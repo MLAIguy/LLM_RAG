@@ -1,0 +1,29 @@
+{
+  "name": "llama2_for_AWS_bedrock_rag",
+  "data_config": {
+    "data_path": "data",
+    "chunk_size": 10000,
+    "chunk_overlap": 1000
+  },
+  "streamlit": {
+    "page_name": "Chat PDF",
+    "header": "Chat with PDF using AWS Bedrock",
+    "question_box_title": "Ask a question from the PDF files",
+    "side_bar_title": "Update or create vector store",
+    "side_bar_button": "Vectors update",
+    "QA_model_buttons": ["Llama2", "Claude"]
+  },
+  "model_config": {
+    "embedding_model_id": "amazon.titan-embed-text-v1",
+    "vector_store_save_path": "faiss_index",
+    "inference_config": [
+      {
+        "model_name": "llama2",
+        "model_id": "meta.llama2-70b-chat-v1",
+        "model_kwargs": {
+          "max_gen_len": 512
+        }
+      }
+    ]
+  }
+}
